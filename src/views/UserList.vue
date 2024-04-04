@@ -7,6 +7,7 @@
     <ul>
       <li v-for="user in filteredUsers" :key="user.id">
 				{{ user.name }}
+        <div><RouterLink :to="'/user/'+user.id">Profil</RouterLink></div>
 			</li>
     </ul>
   </div>
