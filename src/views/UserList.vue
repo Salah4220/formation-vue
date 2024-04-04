@@ -17,8 +17,8 @@
   <script setup lang="ts">
 import { ref, onMounted,computed } from 'vue';
 import axios from 'axios';
-
-const users = ref([]);
+import {type User} from  "@/interfaces/user.interface";
+const users = ref<Array<User>>([]);
 const searchTerm = ref("")
 
 const filteredUsers = computed(() => {

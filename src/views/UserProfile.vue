@@ -24,8 +24,9 @@
 import { ref, onMounted,computed } from 'vue';
 import { useRoute } from 'vue-router';
 import axios from 'axios';
+import {type User} from  "@/interfaces/user.interface";
 
-const user = ref({});
+const user = ref<User>({} as User);
 const route = useRoute();
  const id =route.params.id;
 
