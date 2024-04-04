@@ -5,18 +5,16 @@ import { ref, computed, reactive } from 'vue';
 import type { User } from '@/interfaces/user.interface'; 
 
 export const useAuthStore = defineStore('auth', () => {
-  const user =reactive({} as User);
+  const user =ref<User>({} as User);
 
   function login(userData: User) {
-    Object.assign(user,userData)
+    user.value=userData
+ 
   }
 
   function logout() {
-    Object.assign(user,null)
+   user.value={} as User
   }
-
-  
-
  
   return {
     user,

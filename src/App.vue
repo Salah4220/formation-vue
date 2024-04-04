@@ -1,5 +1,16 @@
 <script setup lang="ts">
 import NavBar from './components/NavBar.vue'
+import { useAuthStore } from '@/stores/auth';
+import { useRouter } from 'vue-router'
+
+  const router = useRouter();
+  const authStore = useAuthStore();
+
+const submitForm2 = async () => {
+    authStore.logout();
+    router.push({ path: '/' });
+  
+};
 /*import StartingVue from './components/StartingVue.vue'
 
 import CarteMessage from './components/CarteMessage.vue'
@@ -72,6 +83,7 @@ watch(reactiveObject, (newreactiveObject, oldreactiveObject) => {
 
 <template>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    
     <!--    <StartingVue/> 
 
     <CarteMessage v-if="showCarteMessage" :titre="unTitre" @supprimer="handleMyClick"></CarteMessage>
@@ -96,6 +108,7 @@ watch(reactiveObject, (newreactiveObject, oldreactiveObject) => {
   <div>
 
     <NavBar/>
+    <button @click="submitForm2">LogOut</button>
   </div>
   <RouterView/>
 

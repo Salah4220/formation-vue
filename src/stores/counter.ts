@@ -1,35 +1,12 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
-export const useAuthStore = defineStore('auth', () => {
-  const user = ref(null);
-
-  function login(userData) {
-    user.value = userData;
+export const useCounterStore = defineStore('counter', () => {
+  const count = ref(0)
+  const doubleCount = computed(() => count.value * 2)
+  function increment() {
+    count.value++
   }
 
-  function logout() {
-    user.value = null;
-  }
-
-  const isLoggedIn = computed(() => !!user.value);
-  
-  const currentUser = computed(() => user.value);
-
-  const fullAddress = computed(() => {
-    const currentUserValue = user.value;
-    if (currentUserValue) {
-      return `${currentUserValue.address.suite}, ${currentUserValue.address.street}, ${currentUserValue.address.zipcode}, ${currentUserValue.address.city}`;
-    }
-    return '';
-  });
-
-  return {
-    user,
-    login,
-    logout,
-    isLoggedIn,
-    currentUser,
-    fullAddress
-  };
-});
+  return { count, doubleCount, increment }
+})
