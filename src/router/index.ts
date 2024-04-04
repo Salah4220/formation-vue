@@ -4,12 +4,13 @@ import About from '../views/AboutView.vue';
 import UserList from '../views/UserList.vue';
 import Login from '../views/Login.vue';
 import UserProfile from '../views/UserProfile.vue';
-
+import NotFoundComponent from '../views/NotFoundComponent.vue';
 const routes = [
   { path: '/about', component: About },
   { path: '/', name: 'home', component: UserList },
   { path: '/login', name: 'login', component: Login },
-  { path: '/user/:id', name: 'UserProfile', component: UserProfile }
+  { path: '/user/:id', name: 'UserProfile', component: UserProfile },
+  { path: '/:pathMatch(.*)*', component: NotFoundComponent }
   
 ];
 

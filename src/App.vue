@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import StartingVue from './components/StartingVue.vue'
 import NavBar from './components/NavBar.vue'
+/*import StartingVue from './components/StartingVue.vue'
+
 import CarteMessage from './components/CarteMessage.vue'
 /*import UserList from './components/UserList.vue'*/
 /*import { reactive, ref,computed,watch } from 'vue'
